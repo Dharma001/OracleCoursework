@@ -1,0 +1,38 @@
+﻿@model WebApplication1.Models.Instructor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="page-title">Create Instructor</h1>
+<div>
+    <a asp-action="Index" class="btn btn-primary" style="float:right;">Back to List</a>
+</div>
+
+<h4>Instructor</h4>
+
+<hr />
+<div class="form-container">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="InstructorName" class="control-label">Instructor Name</label>
+                    <input asp-for="InstructorName" class="form-control" />
+                    <span asp-validation-for="InstructorName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EmailAddress" class="control-label">Email Address</label>
+                    <input asp-for="EmailAddress" class="form-control" />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="float:right;">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,36 @@
+﻿@model WebApplication1.Models.Answer
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container">
+    <h1 class="mt-4">Delete Answer</h1>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4 class="card-title">Are you sure you want to delete this answer?</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Answer Text:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.AnswerText)</dd>
+
+                <dt class="col-sm-3">Answer Date:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.AnswerDate)</dd>
+
+                <dt class="col-sm-3">Question:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Question.QuestionText)</dd>
+
+                <dt class="col-sm-3">Instructor:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Instructor.InstructorName)</dd>
+            </dl>
+        </div>
+        <div class="card-footer">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="AnswerId" />
+                <button type="submit" class="btn btn-danger">Delete</button> |
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </form>
+        </div>
+    </div>
+</div>

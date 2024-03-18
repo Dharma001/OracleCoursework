@@ -1,0 +1,33 @@
+﻿@model WebApplication1.Models.Course
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <h1 class="mt-4">Course Details</h1>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4 class="card-title">Course Information</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Title:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.CourseTitle)</dd>
+
+                <dt class="col-sm-3">Description:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Description)</dd>
+
+                <dt class="col-sm-3">Duration:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Duration)</dd>
+
+                <dt class="col-sm-3">Instructor:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Instructor.InstructorName)</dd>
+            </dl>
+        </div>
+        <div class="card-footer">
+            <a asp-action="Edit" asp-route-id="@Model?.CourseId" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

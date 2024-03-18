@@ -1,0 +1,49 @@
+﻿@model WebApplication1.Models.Content
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="page-title">Create Content</h1>
+<div>
+    <a asp-action="Index" class="btn btn-primary" style="float:right;">Back to List</a>
+</div>
+<h4>Content</h4>
+<hr />
+<div class="form-container">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CourseId" class="control-label">Course</label>
+                    <select asp-for="CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LessonNo" class="control-label">Lesson Number</label>
+                    <select asp-for="LessonNo" class="form-control" asp-items="ViewBag.LessonNo"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContentTitle" class="control-label">Content Title</label>
+                    <input asp-for="ContentTitle" class="form-control" />
+                    <span asp-validation-for="ContentTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContentType" class="control-label">Content Type</label>
+                    <input asp-for="ContentType" class="form-control" />
+                    <span asp-validation-for="ContentType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContentUrl" class="control-label">Content URL</label>
+                    <input asp-for="ContentUrl" class="form-control" />
+                    <span asp-validation-for="ContentUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="float:right;">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

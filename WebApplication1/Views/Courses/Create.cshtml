@@ -1,0 +1,46 @@
+﻿@model WebApplication1.Models.Course
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="page-title">Create Course</h1>
+<div>
+    <a asp-action="Index" class="btn btn-primary" style="float:right;">Back to List</a>
+</div>
+<h4>Course</h4>
+<hr />
+<div class="form-container">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CourseTitle" class="control-label">Course Title</label>
+                    <input asp-for="CourseTitle" class="form-control" />
+                    <span asp-validation-for="CourseTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label">Description</label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Duration" class="control-label">Duration</label>
+                    <input asp-for="Duration" class="form-control" />
+                    <span asp-validation-for="Duration" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="InstructorId" class="control-label">Instructor</label>
+                    <select asp-for="InstructorId" class="form-control" asp-items="ViewBag.InstructorId"></select>
+                </div>
+                <div class="form-group" style="float:right;">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <br />
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
